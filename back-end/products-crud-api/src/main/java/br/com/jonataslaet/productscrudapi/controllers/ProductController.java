@@ -24,14 +24,7 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
-	
-//	readAll(): Observable<any> {
-//	    return this.httpClient.get(baseURL);
-//	  }
-	//GET /api/products?name=[keyword] find all products which name contains the passed keyword.
-//	  searchByName(name): Observable<any> {
-//	    return this.httpClient.get(`${baseURL}?name=${name}`);
-//	  }
+
 	@GetMapping
 	public ResponseEntity<List<ProductDTO>> readAll(@RequestParam(required=false) String name){
 		if (name != null) {
@@ -39,43 +32,27 @@ public class ProductController {
 		}
 		return productService.readAll();
 	}
-	
-//	  read(id): Observable<any> {
-//	    return this.httpClient.get(`${baseURL}/${id}`);
-//	  }
+
 	@GetMapping("/{id}")
 	public ResponseEntity<ProductDTO> read(@PathVariable("id") Long id) throws ObjectNotFoundException{
 		return productService.read(id); 
 	}
-	
-	
-//	  create(data): Observable<any> {
-//	    return this.httpClient.post(baseURL, data);
-//	  }
+
 	@PostMapping
 	public ResponseEntity<ProductDTO> create(@RequestBody ProductDTO productDTO){
 		return productService.create(productDTO); 
 	}
 	
-//	  update(id, data): Observable<any> {
-//	    return this.httpClient.put(`${baseURL}/${id}`, data);
-//	  }
 	@PutMapping("/{id}")
 	public ResponseEntity<ProductDTO> update(@PathVariable("id") Long id, @RequestBody ProductDTO productDTO) throws ObjectNotFoundException{
 		return productService.update(id, productDTO); 
 	}
 	
-//	  delete(id): Observable<any> {
-//	    return this.httpClient.delete(`${baseURL}/${id}`);
-//	  }
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws ObjectNotFoundException{
 		return productService.delete(id); 
 	}
 
-//	  deleteAll(): Observable<any> {
-//	    return this.httpClient.delete(baseURL);
-//	  }
 	@DeleteMapping
 	public ResponseEntity<Void> deleteAll() throws ObjectNotFoundException{
 		return productService.deleteAll(); 

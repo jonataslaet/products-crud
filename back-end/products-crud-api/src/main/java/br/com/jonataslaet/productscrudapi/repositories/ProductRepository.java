@@ -13,6 +13,6 @@ import br.com.jonataslaet.productscrudapi.domain.Product;
 public interface ProductRepository extends JpaRepository<Product, Long>{
 
 	@Query("select p from Product p where p.name like %:nameP%")
-	List<Product> searchByName(@Param("name") String name);
+	List<Product> searchByName(@Param("nameP") String name);
 
 }
