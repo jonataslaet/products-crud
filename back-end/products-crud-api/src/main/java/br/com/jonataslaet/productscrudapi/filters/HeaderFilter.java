@@ -20,6 +20,7 @@ public class HeaderFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletResponse res = (HttpServletResponse) response;
+		res.setHeader("Access-Control-Allow-Methods","PUT, DELETE");
 		res.setHeader("Access-Control-Allow-Origin", originPermitida);
 		res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 		chain.doFilter(request, response);
