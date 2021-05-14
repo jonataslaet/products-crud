@@ -13,10 +13,11 @@ public class ProductDTO {
 	private Boolean available;
 
 	public ProductDTO() {
-
+		this.available = false;
 	}
 
 	public ProductDTO(Product product) {
+		this.available = false;
 		this.id = product.getId();
 		this.name = product.getName();
 		this.description = product.getDescription();

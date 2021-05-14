@@ -21,6 +21,7 @@ public class HeaderFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletResponse res = (HttpServletResponse) response;
 		res.setHeader("Access-Control-Allow-Origin", originPermitida);
+		res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 		chain.doFilter(request, response);
 	}
 }

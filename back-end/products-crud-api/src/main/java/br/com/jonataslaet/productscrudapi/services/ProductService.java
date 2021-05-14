@@ -40,9 +40,9 @@ public class ProductService {
 
 	public ResponseEntity<ProductDTO> create(ProductDTO productDTO) {
 		Product product = new Product(productDTO);
+		product = productRepository.save(product);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(product.getId()).toUri();
-		productRepository.save(product);
-		return ResponseEntity.created(uri).body(productDTO);
+		return ResponseEntity.created(uri).body(new ProductDTO(product));
 	}
 
 	public ResponseEntity<ProductDTO> update(Long id, ProductDTO productDTO) throws ObjectNotFoundException {
