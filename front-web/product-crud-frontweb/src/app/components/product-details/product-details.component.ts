@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductDTO } from 'src/app/models/product.dto';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-details',
@@ -7,9 +10,70 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  constructor() { }
+  currentProduct: ProductDTO = null;
+  message = '';
+
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.message = '';
+    this.getProduct(this.route.snapshot.paramMap.get('id'));
   }
 
+  getProduct(id): void {
+    this.productService.read(id)
+      .subscribe(
+        product => {
+          this.currentProduct = product;
+          console.log(product);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  setAvailableStatus(status): void {
+    const data = {
+      name: this.currentProduct.name,
+      description: this.currentProduct.description,
+      available: status
+    };
+
+    this.productService.update(this.currentProduct.id, data)
+      .subscribe(
+        response => {
+          this.currentProduct.available = status;
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  updateProduct(): void {
+    this.productService.update(this.currentProduct.id, this.currentProduct)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.message = 'The product was updated!';
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  deleteProduct(): void {
+    this.productService.delete(this.currentProduct.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['/products']);
+        },
+        error => {
+          console.log(error);
+        });
+  }
 }
