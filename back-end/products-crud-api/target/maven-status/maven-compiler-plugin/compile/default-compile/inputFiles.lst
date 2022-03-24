@@ -1,0 +1,7 @@
+C:\Workspaces\ws-amazonandjavatraining\products-crud\back-end\products-crud-api\src\main\java\br\com\jonataslaet\productscrudapi\ProductsCrudApiApplication.java
+C:\Workspaces\ws-amazonandjavatraining\products-crud\back-end\products-crud-api\src\main\java\br\com\jonataslaet\productscrudapi\repositories\ProductRepository.java
+C:\Workspaces\ws-amazonandjavatraining\products-crud\back-end\products-crud-api\src\main\java\br\com\jonataslaet\productscrudapi\controllers\ProductController.java
+C:\Workspaces\ws-amazonandjavatraining\products-crud\back-end\products-crud-api\src\main\java\br\com\jonataslaet\productscrudapi\controllers\dtos\ProductDTO.java
+C:\Workspaces\ws-amazonandjavatraining\products-crud\back-end\products-crud-api\src\main\java\br\com\jonataslaet\productscrudapi\filters\HeaderFilter.java
+C:\Workspaces\ws-amazonandjavatraining\products-crud\back-end\products-crud-api\src\main\java\br\com\jonataslaet\productscrudapi\services\ProductService.java
+C:\Workspaces\ws-amazonandjavatraining\products-crud\back-end\products-crud-api\src\main\java\br\com\jonataslaet\productscrudapi\domain\Product.java

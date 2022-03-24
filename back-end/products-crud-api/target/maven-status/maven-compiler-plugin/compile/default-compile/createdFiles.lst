@@ -1,0 +1,7 @@
+br\com\jonataslaet\productscrudapi\ProductsCrudApiApplication.class
+br\com\jonataslaet\productscrudapi\services\ProductService.class
+br\com\jonataslaet\productscrudapi\controllers\dtos\ProductDTO.class
+br\com\jonataslaet\productscrudapi\domain\Product.class
+br\com\jonataslaet\productscrudapi\controllers\ProductController.class
+br\com\jonataslaet\productscrudapi\filters\HeaderFilter.class
+br\com\jonataslaet\productscrudapi\repositories\ProductRepository.class
